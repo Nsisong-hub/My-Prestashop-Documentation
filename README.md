@@ -290,6 +290,12 @@ Provide your database information and click on the Next. You should see the foll
 Click on the “Manage your store“. You will be redirected to the following page:
 <img width="1120" alt="pd49" src="https://github.com/user-attachments/assets/8d3635da-86cb-446a-b67b-78c059d9e74f" />
 
+# Conclusion
+This solution ensures that the database is not hosted on the same server as the application and here is how; the MySQL database is hosted on Amazon RDS, a separate managed service provided by AWS. This guarantees the database is on a different server, physically and logically separate from the EC2 instance running the PrestaShop application. Secondly the connection between PrestaShop (running on the EC2 instance) and the MySQL database (hosted on RDS) is configured via the RDS endpoint as no database is installed or hosted on the EC2 instance itself.
+
+# Recommendation
+However, this whole setup is more of a traditonal (manual installation), you can simplify the application Deployment by running the PrestaShop application via Docker on the EC2 instance as the PrestaShop and its dependencies are pre-packaged in the Docker image, thereby reducing manual setup.
+
 
 
 
