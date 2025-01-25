@@ -219,7 +219,7 @@ sudo systemctl start apache2
 <img width="1109" alt="pd35" src="https://github.com/user-attachments/assets/db8fddc7-195b-4087-9fea-204926c1cffe" />
 
 **6. Download and Install PrestaShop**
-* I download Prestashop directly into my local machine
+* I downloaded Prestashop directly into my local machine
 * To upload it onto my remote EC2 instance, i used the command:
 ```bash
 scp -i /path/to/privatekey.pem /path/to/localfile username@remote_host:/path/to/destination/
@@ -242,7 +242,7 @@ sudo apt install unzip
 ```
 <img width="1117" alt="pd38" src="https://github.com/user-attachments/assets/4c8e95b4-ebb1-4584-8d08-ead20464c71c" />
 
-* Extract the prestashop and set proper permissions with these commands:
+* Extract the prestashop to the default Apache document root directory and set proper permissions with these commands:
 
 ```bash
 sudo unzip prestashop_edition_basic_version_8.2.0.zip -d /var/www/html
@@ -252,10 +252,10 @@ sudo chmod -R 755 /var/www/html
 <img width="1122" alt="pd39" src="https://github.com/user-attachments/assets/d951feba-3037-4ba5-8cfb-71c9a3fc08d5" />
 
 **7. Remove the default Apache page and finalize:**
-* Change the current directory to /var/www/html
-* Removes the default Apache welcome page to allow PrestaShop to load as the main site
-* Restarts the Apache server to apply all recent changes
-* And then deletes the /install directory, which is a necessary security measure after PrestaShop setup to prevent unauthorized reinstallation.
+* Change the current directory to the default Apache document root directory `/var/www/html`
+* Remove the default Apache welcome page to allow PrestaShop to load as the main site
+* Restart the Apache server to apply all recent changes
+* And then delete the /install directory, which is a necessary security measure after PrestaShop setup to prevent unauthorized reinstallation.
 ```bash
 cd /var/www/html  
 sudo rm index.html  
